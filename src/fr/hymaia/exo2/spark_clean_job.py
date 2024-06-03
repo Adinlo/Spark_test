@@ -3,7 +3,7 @@ from pyspark.sql import SparkSession
 
 
 def filter(df, age):
-    return df.filter(f.col("age") > age)
+    return df.filter(f.col("age") >= age)
 
 
 def city_join_client (df2, df1):
