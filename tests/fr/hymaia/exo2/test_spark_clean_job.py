@@ -1,24 +1,9 @@
 from tests.fr.hymaia.spark_test_case import spark
 import unittest
-import pyspark.sql.functions as f
-# from src.fr.hymaia.exo1.main import clean
+from src.fr.hymaia.exo2.spark_clean_job import filter
+from src.fr.hymaia.exo2.spark_clean_job import city_join_client
+from src.fr.hymaia.exo2.spark_clean_job import add_department
 from pyspark.sql import Row
-import test_spark_clean_job
-
-def filter(df, age):
-    return df.filter(f.col("age") > age)
-
-def city_join_client (df2, df1):
-    return df2.join(df1, "zip", "inner")
-
-def add_department (df3):
-   return df3.withColumn(
-        "department",
-                   f.when(
-                        f.substring(df3["zip"], 1, 2) != "20", f.substring(df3["zip"], 1, 2))
-                         .otherwise(f.when(f.col("zip") <= 20190, "2A").otherwise("2B"))
-    )
-
 
 
 class TestMain(unittest.TestCase):
@@ -61,8 +46,8 @@ class TestMain(unittest.TestCase):
         ])
 
         expected = spark.createDataFrame([
-                Row(zip='75000', city='Paris', name='Turing', age=21),
-                Row(zip='94140', city='Alfortiville', name='Bob', age=41)
+                Row(ziip='75000', city='Paris', name='Turing', age=21),
+                Row(ziip='94140', city='Alfortiville', name='Bob', age=41)
             
             ])
 
