@@ -1,5 +1,7 @@
 # Spark Hands on
 
+It's a school projet on Spark to learn Spark with Spark job and different test.
+
 * [Exercice 0](exo0.md)
 * [Exercice 1](exo1.md)
 * [Exercice 2](exo2.md)
