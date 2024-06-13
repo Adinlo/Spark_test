@@ -1,4 +1,4 @@
-# Spark Hands on
+# Spark test
 
 It's a school projet on Spark to learn Spark with Spark job and different test.
 
