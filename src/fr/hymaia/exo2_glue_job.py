@@ -2,11 +2,12 @@ import sys
 
 from awsglue.context import GlueContext
 from awsglue.job import Job
+import pyspark.sql.functions as f
 from awsglue.utils import getResolvedOptions
 from pyspark.sql import SparkSession
-from spark_aggregate_job import main as aggregateMain
 from spark_clean_job import main as cleanMain
-# TODO : import custom spark code dependencies
+from spark_aggregate_job import main as aggregateMain
+
 
 if __name__ == '__main__':
     spark = SparkSession.builder.getOrCreate()
@@ -19,7 +20,7 @@ if __name__ == '__main__':
     param2 = args["PARAM_2"]
 
     # TODO : call function to run spark transformations
-    aggregateMain(spark)
     cleanMain(spark)
+    aggregateMain(spark)
 
     job.commit()
