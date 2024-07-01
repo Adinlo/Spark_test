@@ -1,12 +1,8 @@
 from tests.fr.hymaia.spark_test_case import spark
 import unittest
 import pyspark.sql.functions as f
-# from src.fr.hymaia.exo1.main import clean
+from src.fr.hymaia.exo2.spark_aggregate_job import agg
 from pyspark.sql import Row
-import test_spark_aggregate_job
-
-def agg(df):
-    return df.groupBy(f.col("departement")).agg(f.count(f.col(("name"))).alias("nb_people"))
 
 
 class TestMain(unittest.TestCase):
